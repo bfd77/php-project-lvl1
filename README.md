@@ -5,4 +5,4 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
 
 ### GitHub Actions
-![php ci](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
+[![php-ci](https://github.com/bfd77/php-project-lvl1/actions/workflows/my-check.yml/badge.svg)](https://github.com/bfd77/php-project-lvl1/actions/workflows/my-check.yml)
