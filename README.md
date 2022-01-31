@@ -6,3 +6,7 @@
 
 ### GitHub Actions
 [![php-ci](https://github.com/bfd77/php-project-lvl1/actions/workflows/my-check.yml/badge.svg)](https://github.com/bfd77/php-project-lvl1/actions/workflows/my-check.yml)
+
+### Even game example
+
+https://asciinema.org/a/AAodBrZr6mrNkKDdUZfXI1lx8
