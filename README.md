@@ -10,3 +10,7 @@
 ### Even game example
 
 https://asciinema.org/a/AAodBrZr6mrNkKDdUZfXI1lx8
+
+### Calc game example
+
+https://asciinema.org/a/rNAj2KsDfpRVSAuqRSBaSnhPK
