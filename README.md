@@ -22,3 +22,7 @@ https://asciinema.org/a/fLTsn0RdjD4tRl9D9mFmHWQXK
 ### Progression game example
 
 https://asciinema.org/a/JlIjZ5ntHWxT6LgzSZlO8nZmP
+
+### Prime game example
+
+https://asciinema.org/a/tzSU1VWbhDvHRAn3rU2uRE9N7
