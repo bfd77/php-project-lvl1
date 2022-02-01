@@ -15,6 +15,10 @@ https://asciinema.org/a/AAodBrZr6mrNkKDdUZfXI1lx8
 
 https://asciinema.org/a/rNAj2KsDfpRVSAuqRSBaSnhPK
 
-#### Gcd game example
+### Gcd game example
 
 https://asciinema.org/a/fLTsn0RdjD4tRl9D9mFmHWQXK
+
+### Progression game example
+
+https://asciinema.org/a/JlIjZ5ntHWxT6LgzSZlO8nZmP
