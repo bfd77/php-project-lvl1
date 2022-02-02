@@ -1,26 +1,23 @@
 <?php
 
-namespace Brain\Games\Games;
+namespace Brain\Games\Games\Calc;
 
-use Brain;
+use function Brain\Games\runGame;
 
-class Calc extends Brain\Games\Engine
+function run(): void
 {
-    protected function getDescription(): string
-    {
-        return 'What is the result of the expression?';
-    }
-
-    protected function generateRound(int $iter): array
-    {
-        $a = random_int(0, 100);
-        $b = random_int(0, 100);
-        $operators = ['+', '-', '*'];
-        $operator = $operators[array_rand($operators)];
-        $question = "{$a} {$operator} {$b}";
-        return [
-            'question' => $question,
-            'answer' => (string) eval("return {$question};"),
-        ];
-    }
+    runGame(
+        description: 'What is the result of the expression?',
+        roundGenerator: function (): array {
+            $a = random_int(0, 100);
+            $b = random_int(0, 100);
+            $operators = ['+', '-', '*'];
+            $operator = $operators[array_rand($operators)];
+            $question = "{$a} {$operator} {$b}";
+            return [
+                'question' => $question,
+                'answer' => (string) eval("return {$question};"),
+            ];
+        }
+    );
 }

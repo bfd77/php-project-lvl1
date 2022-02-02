@@ -3,5 +3,6 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-$game = new Brain\Games\Games\Gcd();
-$game->run();
+use function Brain\Games\Games\Gcd\run;
+
+run();

@@ -1,33 +1,30 @@
 <?php
 
-namespace Brain\Games\Games;
+namespace Brain\Games\Games\Gcd;
 
-use Brain;
+use function Brain\Games\runGame;
 
-class Gcd extends Brain\Games\Engine
+function run(): void
 {
-    protected function getDescription(): string
-    {
-        return 'Find the greatest common divisor of given numbers.';
-    }
+    runGame(
+        description: 'Find the greatest common divisor of given numbers.',
+        roundGenerator: function (): array {
+            $a = random_int(1, 50);
+            $b = random_int(1, 50);
+            $question = "{$a} {$b}";
+            return [
+                'question' => $question,
+                'answer' => (string) findGcd($a, $b),
+            ];
+        }
+    );
+}
 
-    protected function generateRound(int $iter): array
-    {
-        $a = random_int(1, 50);
-        $b = random_int(1, 50);
-        $question = "{$a} {$b}";
-        return [
-            'question' => $question,
-            'answer' => (string) $this->findGcd($a, $b),
-        ];
-    }
+function findGcd(int $a, int $b): int
+{
+    $max = max($a, $b);
+    $min = min($a, $b);
+    $reminder = $max % $min;
 
-    private function findGcd(int $a, int $b): int
-    {
-        $max = max($a, $b);
-        $min = min($a, $b);
-        $reminder = $max % $min;
-
-        return $reminder === 0 ? $min : $this->findGcd($min, $reminder);
-    }
+    return $reminder === 0 ? $min : findGcd($min, $reminder);
 }

@@ -1,23 +1,20 @@
 <?php
 
-namespace Brain\Games\Games;
+namespace Brain\Games\Games\Even;
 
-use Brain;
+use function Brain\Games\runGame;
 
-class Even extends Brain\Games\Engine
+function run(): void
 {
-    protected function getDescription(): string
-    {
-        return 'Answer "yes" if the number is even, otherwise answer "no".';
-    }
-
-    protected function generateRound(int $iter): array
-    {
-        $questions = [15, 6, 7];
-        $question = $questions[$iter - 1];
-        return [
-            'question' => $question,
-            'answer' => $question % 2 === 0 ? 'yes' : 'no',
-        ];
-    }
+    runGame(
+        description: 'Answer "yes" if the number is even, otherwise answer "no".',
+        roundGenerator: function (int $iter): array {
+            $questions = [15, 6, 7];
+            $question = $questions[$iter - 1];
+            return [
+                'question' => $question,
+                'answer' => $question % 2 === 0 ? 'yes' : 'no',
+            ];
+        }
+    );
 }

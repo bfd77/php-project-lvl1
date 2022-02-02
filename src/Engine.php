@@ -5,36 +5,29 @@ namespace Brain\Games;
 use function cli\line;
 use function cli\prompt;
 
-abstract class Engine
+const ROUNDS_COUNT = 3;
+
+function runGame(string $description, callable $roundGenerator): void
 {
-    private const ROUNDS_COUNT = 3;
+    line('Welcome to the Brain Game!');
+    $name = prompt('May I have your name?');
+    line("Hello, %s!", $name);
 
-    abstract protected function getDescription(): string;
+    line($description);
 
-    abstract protected function generateRound(int $iter): array;
-
-    public function run(): void
-    {
-        line('Welcome to the Brain Game!');
-        $name = prompt('May I have your name?');
-        line("Hello, %s!", $name);
-
-        line($this->getDescription());
-
-        $i = 1;
-        while ($i <= self::ROUNDS_COUNT) {
-            ['question' => $question, 'answer' => $answer] = $this->generateRound($i);
-            line("Question: {$question}");
-            $givenAnswer = prompt('Your answer');
-            if ($givenAnswer !== $answer) {
-                line("'{$givenAnswer}' is wrong answer ;(. Correct answer was '{$answer}'.");
-                line("Let's try again, {$name}!");
-                exit;
-            }
-            line('Correct!');
-            $i++;
+    $i = 1;
+    while ($i <= ROUNDS_COUNT) {
+        ['question' => $question, 'answer' => $answer] = $roundGenerator($i);
+        line("Question: {$question}");
+        $givenAnswer = prompt('Your answer');
+        if ($givenAnswer !== $answer) {
+            line("'{$givenAnswer}' is wrong answer ;(. Correct answer was '{$answer}'.");
+            line("Let's try again, {$name}!");
+            exit;
         }
-
-        line("Congratulations, {$name}!");
+        line('Correct!');
+        $i++;
     }
+
+    line("Congratulations, {$name}!");
 }

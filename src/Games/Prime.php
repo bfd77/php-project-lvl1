@@ -1,37 +1,34 @@
 <?php
 
-namespace Brain\Games\Games;
+namespace Brain\Games\Games\Prime;
 
-use Brain;
+use function Brain\Games\runGame;
 
-class Prime extends Brain\Games\Engine
+function run(): void
 {
-    protected function getDescription(): string
-    {
-        return 'Answer "yes" if given number is prime. Otherwise answer "no".';
-    }
-
-    protected function generateRound(int $iter): array
-    {
-        $question = random_int(1, 100);
-        $isPrime = $this->isPrimeNumber($question);
-        return [
-            'question' => $question,
-            'answer' => $isPrime ? 'yes' : 'no',
-        ];
-    }
-
-    private function isPrimeNumber(int $num): bool
-    {
-        $sqrt = sqrt($num);
-        $divisor = 2;
-        while ($divisor < $sqrt) {
-            if ($num % $divisor === 0) {
-                return false;
-            }
-            $divisor++;
+    runGame(
+        description: 'Answer "yes" if given number is prime. Otherwise answer "no".',
+        roundGenerator: function (): array {
+            $question = random_int(1, 100);
+            $isPrime = isPrimeNumber($question);
+            return [
+                'question' => $question,
+                'answer' => $isPrime ? 'yes' : 'no',
+            ];
         }
+    );
+}
 
-        return true;
+function isPrimeNumber(int $num): bool
+{
+    $sqrt = sqrt($num);
+    $divisor = 2;
+    while ($divisor < $sqrt) {
+        if ($num % $divisor === 0) {
+            return false;
+        }
+        $divisor++;
     }
+
+    return true;
 }
