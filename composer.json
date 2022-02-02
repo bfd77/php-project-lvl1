@@ -7,6 +7,7 @@
             "Brain\\Games\\": "src"
         },
         "files": [
+            "src/Cli.php",
             "src/Engine.php",
             "src/Games/Calc.php",
             "src/Games/Even.php",
